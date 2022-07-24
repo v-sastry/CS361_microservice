@@ -78,10 +78,13 @@ You may choose to clone this project directly to get usage examples and the serv
 ### How it works
 1. As mentioned previously, this microservice uses the RPyC communcation pipe and provides string validation and functions as a password criteria verification system. A client can send a request to the microservice with a string, and this microservice will return a boolean confirming whether the provided input meets some predefined criteria.
 2. To start, the microservice is initiated by running a server.py file that waits for incoming messages. A client can connect on the same port and access an exposed set of functionality available from the server.py microservice. This is as simple as accessing a connection via the rpyc module on a specific port, and then running a “root” request.
+
 ![Client.py example:](client_calls.png)
 
 3. Clients receive data from my microservice while making a request to the exposed functionality in the server.py file. The received data can be stored in a variable from the calling client.
+
 ![Server.py](server_exposed.png)
+
 
 ![Client.py](client_server_response.png)
 
@@ -172,7 +175,9 @@ connection = rpyc.connect("localhost", PORT) # Initialize the connection
 **NEXT**
 - The variable you used to establish the connection to the microservice can be used to access any `exposed_` method in `server.py` when followed by the dot `.` prefix and `root`
 ____
-<details><summary>Code example</summary>
+
+<details><summary>CODE EXAMPLES</summary>
+
 #### Example 1A: Print boolean of whether string input contains digits
 ```python
 noDigits = "HelloWorld!!!"
