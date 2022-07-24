@@ -6,21 +6,10 @@
       - [Install RPyC](#install-rpyc)
       - [Deactivate](#deactivate)
   * [Getting Started](#getting-started)
-    + [How it works](#how-it-works)
+    + [How it works | How to Make Requests and Receive Data](#how-it-works)
     + [UML Diagram](#uml-diagram)
     + [Run server.py locally](#run-serverpy-locally)
   * [Usage/Examples](#usage-examples)
-    + [How to make requests to the microservice from your application (YOUR_CLIENT_FILE.py)](#how-to-make-requests-to-the-microservice-from-your-application--your-client-filepy-)
-      - [Example 1A: Print boolean of whether string input contains digits](#example-1a--print-boolean-of-whether-string-input-contains-digits)
-      - [Example 1B: Print boolean of whether string input contains digits](#example-1b--print-boolean-of-whether-string-input-contains-digits)
-      - [Example 2A: Print boolean of whether string input](#example-2a--print-boolean-of-whether-string-input)
-      - [Example 2B: Print boolean of whether string input](#example-2b--print-boolean-of-whether-string-input)
-      - [Example 3A: Print boolean of whether string input](#example-3a--print-boolean-of-whether-string-input)
-      - [Example 3B: Print boolean of whether string input](#example-3b--print-boolean-of-whether-string-input)
-      - [Example 4A: Print boolean of whether string input](#example-4a--print-boolean-of-whether-string-input)
-      - [Example 4B: Print boolean of whether string input](#example-4b--print-boolean-of-whether-string-input)
-      - [Example 5: passChecker(): returns True if input's length >= 12, has digits, has lowercase, has uppercase, has symbol from 0-9 number key row](#example-5--passchecker----returns-true-if-input-s-length----12--has-digits--has-lowercase--has-uppercase--has-symbol-from-0-9-number-key-row)
-    + [How to receive data from the microservice to your application](#how-to-receive-data-from-the-microservice-to-your-application)
   * [Documentation](#documentation)
 
 
@@ -89,16 +78,16 @@ You may choose to clone this project directly to get usage examples and the serv
 ### How it works
 1. As mentioned previously, this microservice uses the RPyC communcation pipe and provides string validation and functions as a password criteria verification system. A client can send a request to the microservice with a string, and this microservice will return a boolean confirming whether the provided input meets some predefined criteria.
 2. To start, the microservice is initiated by running a server.py file that waits for incoming messages. A client can connect on the same port and access an exposed set of functionality available from the server.py microservice. This is as simple as accessing a connection via the rpyc module on a specific port, and then running a “root” request.
-[Client.py example:](client_calls.png)
+![Client.py example:](client_calls.png)
 
 3. Clients receive data from my microservice while making a request to the exposed functionality in the server.py file. The received data can be stored in a variable from the calling client.
-[Server.py](server_exposed.png)
+![Server.py](server_exposed.png)
 
-[Client.py](client_server_response.png)
+![Client.py](client_server_response.png)
 
 ### UML Diagram
 
-[UML Diagram](Microservice_UML.png)
+![UML Diagram](Microservice_UML.png)
 
 ### Run server.py locally
 - Clone/save the [server.py](server.py) file OR copy and save code below in your project folder where `rpyc` was installed
@@ -183,6 +172,7 @@ connection = rpyc.connect("localhost", PORT) # Initialize the connection
 **NEXT**
 - The variable you used to establish the connection to the microservice can be used to access any `exposed_` method in `server.py` when followed by the dot `.` prefix and `root`
 ____
+<details><summary>Code example</summary>
 #### Example 1A: Print boolean of whether string input contains digits
 ```python
 noDigits = "HelloWorld!!!"
@@ -232,6 +222,7 @@ correct = "HelloWorld123!@#"
 print("correct", connection.root.passChecker(correct)) # print True
 print("direct_correct", connection.root.passChecker("He11()W()r1d")) # print True
 ```
+</details>
 
 ### How to receive data from the microservice to your application
 - The examples in the client.py above section showcase how to send an input string to the microservice, have the microservice perform a calculation, and finally have the microservice respond with the results of its internal method call with a boolean return
