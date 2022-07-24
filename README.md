@@ -6,11 +6,17 @@
       - [Install RPyC](#install-rpyc)
       - [Deactivate](#deactivate)
   * [Getting Started](#getting-started)
-    + [How it works | How to Make Requests and Receive Data](#how-it-works)
+    + [How it works](#how-it-works)
     + [UML Diagram](#uml-diagram)
     + [Run server.py locally](#run-serverpy-locally)
-  * [Usage/Examples](#usage-examples)
+  * [Usage and Examples](#usage-and-examples)
+    + [How to make requests to the microservice from your application (YOUR_CLIENT_FILE.py)](#how-to-make-requests-to-the-microservice-from-your-application--your-client-filepy-)
+    + [CODE EXAMPLES](#code-examples)
+    + [How to receive data from the microservice to your application](#how-to-receive-data-from-the-microservice-to-your-application)
   * [Documentation](#documentation)
+
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+
 
 
 
@@ -160,7 +166,7 @@ You may choose to clone this project directly to get usage examples and the serv
 - Now that you've run the `server.py` file, the microservice is active and can be terminated with `Ctrl + C`
 - After terminating the microserver, don't forget to run `deactivate` in the terminal if you're running an virtualenv
 
-## Usage/Examples
+## Usage and Examples
 
 ### How to make requests to the microservice from your application (YOUR_CLIENT_FILE.py)
 Like the server.py file, your application will need to import the `rpyc` module and be capable of running `python3` code. Follow the Installation instructions & reference the Documentation to setup `rpyc` in your application.
