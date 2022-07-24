@@ -1,8 +1,38 @@
+- [Vish's Microservice for CS361](#vish-s-microservice-for-cs361)
+  * [Installation](#installation)
+    + [Regular Installation into Packages](#regular-installation-into-packages)
+    + [Project Virtual Environment Installation](#project-virtual-environment-installation)
+      - [Setup virtualenv](#setup-virtualenv)
+      - [Install RPyC](#install-rpyc)
+      - [Deactivate](#deactivate)
+  * [Getting Started](#getting-started)
+    + [How it works](#how-it-works)
+    + [UML Diagram](#uml-diagram)
+    + [Run server.py locally](#run-serverpy-locally)
+  * [Usage/Examples](#usage-examples)
+    + [How to make requests to the microservice from your application (YOUR_CLIENT_FILE.py)](#how-to-make-requests-to-the-microservice-from-your-application--your-client-filepy-)
+      - [Example 1A: Print boolean of whether string input contains digits](#example-1a--print-boolean-of-whether-string-input-contains-digits)
+      - [Example 1B: Print boolean of whether string input contains digits](#example-1b--print-boolean-of-whether-string-input-contains-digits)
+      - [Example 2A: Print boolean of whether string input](#example-2a--print-boolean-of-whether-string-input)
+      - [Example 2B: Print boolean of whether string input](#example-2b--print-boolean-of-whether-string-input)
+      - [Example 3A: Print boolean of whether string input](#example-3a--print-boolean-of-whether-string-input)
+      - [Example 3B: Print boolean of whether string input](#example-3b--print-boolean-of-whether-string-input)
+      - [Example 4A: Print boolean of whether string input](#example-4a--print-boolean-of-whether-string-input)
+      - [Example 4B: Print boolean of whether string input](#example-4b--print-boolean-of-whether-string-input)
+      - [Example 5: passChecker(): returns True if input's length >= 12, has digits, has lowercase, has uppercase, has symbol from 0-9 number key row](#example-5--passchecker----returns-true-if-input-s-length----12--has-digits--has-lowercase--has-uppercase--has-symbol-from-0-9-number-key-row)
+    + [How to receive data from the microservice to your application](#how-to-receive-data-from-the-microservice-to-your-application)
+  * [Documentation](#documentation)
+
+
+
+
 # Vish's Microservice for CS361
 
 *Communication Contract for String Validation & Password Checker Microservice*
 
 ## Installation
+
+<details><summary>Installation Instructions</summary>
 
 This section provides instruction on how to install the [RPyC module](https://pypi.org/project/rpyc/) necessary to setup the remote procedure calls of this microservice.
 
@@ -48,12 +78,30 @@ You can close the virtual environment in bash with:
 deactivate
 ```
 
-## Run Locally
+</details>
+
+## Getting Started
+
+You are going to run the server locally and enable your application to send/receive the response.
 
 You may choose to clone this project directly to get usage examples and the server.py file, or you can recreate entirely by following the Instructions section and running the server.py code locally.
 
+### How it works
+1. As mentioned previously, this microservice uses the RPyC communcation pipe and provides string validation and functions as a password criteria verification system. A client can send a request to the microservice with a string, and this microservice will return a boolean confirming whether the provided input meets some predefined criteria.
+2. To start, the microservice is initiated by running a server.py file that waits for incoming messages. A client can connect on the same port and access an exposed set of functionality available from the server.py microservice. This is as simple as accessing a connection via the rpyc module on a specific port, and then running a “root” request.
+[Client.py example:](client_calls.png)
+
+3. Clients receive data from my microservice while making a request to the exposed functionality in the server.py file. The received data can be stored in a variable from the calling client.
+[Server.py](server_exposed.png)
+
+[Client.py](client_server_response.png)
+
+### UML Diagram
+
+[UML Diagram](Microservice_UML.png)
+
 ### Run server.py locally
-- Clone the [server.py](server.py) file OR copy and save code below in your project folder where `rpyc` was installed
+- Clone/save the [server.py](server.py) file OR copy and save code below in your project folder where `rpyc` was installed
 
     ```python
     # =================================================================
