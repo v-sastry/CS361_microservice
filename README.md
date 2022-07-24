@@ -10,15 +10,10 @@
     + [UML Diagram](#uml-diagram)
     + [Run server.py locally](#run-serverpy-locally)
   * [Usage and Examples](#usage-and-examples)
-    + [How to make requests to the microservice from your application (YOUR_CLIENT_FILE.py)](#how-to-make-requests-to-the-microservice-from-your-application--your-client-filepy-)
+    + [How to make requests to the microservice from your application](#how-to-make-requests-to-the-microservice-from-your-application)
     + [CODE EXAMPLES](#code-examples)
     + [How to receive data from the microservice to your application](#how-to-receive-data-from-the-microservice-to-your-application)
   * [Documentation](#documentation)
-
-<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
-
-
-
 
 
 # Vish's Microservice for CS361
@@ -168,8 +163,8 @@ You may choose to clone this project directly to get usage examples and the serv
 
 ## Usage and Examples
 
-### How to make requests to the microservice from your application (YOUR_CLIENT_FILE.py)
-Like the server.py file, your application will need to import the `rpyc` module and be capable of running `python3` code. Follow the Installation instructions & reference the Documentation to setup `rpyc` in your application.
+### How to make requests to the microservice from your application
+Like the server.py file, your application will need to import the `rpyc` module and be capable of running `python3` code in your client.py code. Follow the Installation instructions & reference the Documentation to setup `rpyc` in your application.
 
 **Client - Setup:**
 ```python
