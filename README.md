@@ -176,9 +176,9 @@ connection = rpyc.connect("localhost", PORT) # Initialize the connection
 - The variable you used to establish the connection to the microservice can be used to access any `exposed_` method in `server.py` when followed by the dot `.` prefix and `root`
 ____
 
-<details><summary>CODE EXAMPLES</summary><blockquote>
-  <details><summary>Client - Server Examples</summary><blockquote>
+### CODE EXAMPLES
 
+<details><summary>Expand for Examples</summary>
 
 #### Example 1A: Print boolean of whether string input contains digits
 ```python
@@ -230,8 +230,7 @@ print("correct", connection.root.passChecker(correct)) # print True
 print("direct_correct", connection.root.passChecker("He11()W()r1d")) # print True
 ```
 
-  </blockquote></details>
-</blockquote></details>
+</details>
 
 ### How to receive data from the microservice to your application
 - The examples in the client.py above section showcase how to send an input string to the microservice, have the microservice perform a calculation, and finally have the microservice respond with the results of its internal method call with a boolean return
